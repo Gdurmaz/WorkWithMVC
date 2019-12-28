@@ -1,0 +1,18 @@
+﻿@using Project.Core.Entities;
+@model Note
+
+<div class="row">
+    <div class="col-md-10">
+        <h4>@Model.Title</h4>
+    </div>
+    <div class="divider" role="separator"></div>
+    <div class=" col-md-12 text-right">
+        <span class="glyphicon glyphicon-time"> @Model.ModifiedOn.ToShortDateString()</span><br />
+        <span class="glyphicon glyphicon-user"> @Model.BlogUser.Username</span>
+    </div>
+    <div class="col-md-10">
+        <p>
+            @Model.Text
+        </p>
+    </div>
+</div>

@@ -1,0 +1,69 @@
+﻿@model IEnumerable<Project.Core.Entities.Category>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="text-center col-md-12">
+        <h4><i class="glyphicon glyphicon-list" aria-hidden="true"></i> Kategoriler </h4>
+        <br />
+        <hr />
+        <br />
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-9 col-md-offset-1">
+        <p>
+            <a href="/Categories/Create" class="btn btn-primary"> <span class="glyphicon glyphicon-plus"> Yeni</span></a>
+        </p>
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Title)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Description)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CreatedOn)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ModifiedOn)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ModifiedUsername)
+                </th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CreatedOn)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ModifiedOn)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ModifiedUsername)
+                    </td>
+                    <td class="col-md-6 text-center">
+                        <a href="/Categories/Edit/@item.Id" class="btn btn-warning" title="Düzenle"> <span class="glyphicon glyphicon-edit"></span></a>
+                        <a href="/Categories/Details/@item.Id" class="btn btn-info" title="Detaylar"> <span class="glyphicon glyphicon-search"> </span></a>
+                        <a href="/Categories/Delete/@item.Id" class="btn btn-danger" title="Kaldır"> <span class="glyphicon glyphicon-remove"> </span></a>
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
+
+

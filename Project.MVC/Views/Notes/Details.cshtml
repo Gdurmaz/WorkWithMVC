@@ -1,0 +1,67 @@
+﻿@model Project.Core.Entities.Note
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="row">
+    <div class="text-center col-md-12">
+        <h4><i class="glyphicon glyphicon-list" aria-hidden="true"></i> Kategori Listele </h4>
+        <br />
+        <hr />
+        <br />
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-8 col-md-offset-4">
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Category.Title)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Category.Title)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Title)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Title)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Text)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Text)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.IsDraft)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.IsDraft)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.LikeCount)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.LikeCount)
+            </dd>
+
+        </dl>
+    </div>
+    <div class="col-md-8 text-right">
+        <p>
+            <a href="/Notes/Edit/@Model.Id" class="btn btn-warning"><span class="glyphicon glyphicon-edit"> Düzenle</span></a>
+            <a href="/Notes/Index" class="btn btn-default"><span class="glyphicon glyphicon-arrow-left"> Geri Dön</span></a>
+        </p>
+    </div>
+</div>

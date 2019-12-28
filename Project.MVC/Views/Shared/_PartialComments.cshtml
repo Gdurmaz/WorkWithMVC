@@ -1,0 +1,72 @@
+﻿@using Project.Core.Entities
+@using Project.MVC.Models
+@model List<Comment>
+@{
+    BlogUser user = CurrentUser.User;
+}
+<style type="text/css">
+
+    .editTable {
+        border-color: #034108;
+        outline: 0;
+        -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+        box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6)
+    }
+</style>
+
+@foreach (Comment item in Model)
+{
+    <div class="media">
+        <div class=" media-object ">
+            <span class="glyphicon glyphicon-comment"></span>
+        </div>
+        <div class="media-body">
+            <div>
+                <span class="col-md-10" id="comment_text_@item.Id" contenteditable="false">
+                    @item.Text
+                </span>
+                @if (user != null && user.Id == item.BlogUser.Id)
+                {
+                    <span class="col-md-2 text-right">
+                        <button type="button" class="btn  btn-warning  btn-xs" data-ModeEdit="false"
+                                onclick="doComment(this,'edit_click',@item.Id,'#comment_text_@item.Id');">
+                            <span class="glyphicon glyphicon-edit"></span>
+                        </button>
+                        <button type="button" class="btn  btn-danger btn-xs"
+                                onclick="doComment(this,'delete_click',@item.Id,null);">
+                            <span class="glyphicon glyphicon-trash"></span>
+                        </button>
+                    </span>
+                }
+
+                <br />
+                <small class="col-md-12 text-right">
+                    <span class="glyphicon glyphicon-time"> @item.ModifiedOn </span>
+                    <span class="glyphicon glyphicon-user"> @item.BlogUser.Username</span>
+                </small>
+            </div>
+        </div>
+    </div>
+}
+@if (user != null)
+{
+    <div class="row">
+        <div class="col-md-12">
+            <hr />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="input-group">
+                <input type="text" id="new_comment_text" class="form-control" placeholder="yorumunuz..">
+                <span class="input-group-btn">
+                    <button class="btn btn-success" type="button" 
+                            onclick="doComment(this,'new_click',-1);">
+                        <span class="glyphicon glyphicon-send"></span> Gönder
+                    </button>
+                </span>
+            </div>
+        </div>
+    </div>
+}
+

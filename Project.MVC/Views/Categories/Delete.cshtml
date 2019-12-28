@@ -1,0 +1,52 @@
+﻿@model Project.Core.Entities.Category
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="text-center col-md-12">
+        <h4><i class="glyphicon glyphicon-remove" aria-hidden="true"></i> Kategori Sil </h4>
+        <br />
+        <hr />
+        <br />
+    </div>
+</div>
+
+<div class="row" role="alert">
+    <div class="col-md-8 col-md-offset-4">
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Title)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Title)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Description)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Description)
+            </dd>
+
+        </dl>
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions col-md-8 text-right">
+               <button type="submit" class=" btn btn-danger" onclick="return confirm('Silmek istediğinize emin misiniz ?')" title="Kategori Sil" >
+                   <span class="glyphicon glyphicon-remove"> Kaldır</span>
+               </button>
+                <a href="/Categories/Index" class="btn btn-default" title="Kategori Sayfası">
+                    <span class="glyphicon glyphicon-arrow-left"> Geri Dön
+                    </span>
+                </a>
+            </div>
+        }
+    </div>
+</div>

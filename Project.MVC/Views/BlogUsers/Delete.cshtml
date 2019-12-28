@@ -1,0 +1,102 @@
+﻿@model Project.Core.Entities.BlogUser
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="text-center col-md-12">
+        <h4><i class="glyphicon glyphicon-remove" aria-hidden="true"></i> Kullanıcı Sil </h4>
+        <br />
+        <hr />
+        <br />
+    </div>
+</div>
+
+<div class="row" role="alert">
+    <div class="col-md-8 col-md-offset-4">
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Surname)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Surname)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Username)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Username)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Email)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Email)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Password)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Password)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.BirthOfDay)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.BirthOfDay)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.IsActive)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.IsActive)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.IsAdmin)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.IsAdmin)
+            </dd>
+
+        </dl>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+        <div class="form-actions col-md-8 text-right">
+            <button type="submit" class=" btn btn-danger" onclick="return confirm('Silmek istediğinize emin misiniz ?')" title="Kategori Sil">
+                <span class="glyphicon glyphicon-remove"> Kaldır</span>
+            </button>
+            <a href="/BlogUsers/Index" class="btn btn-default" title="Kategori Sayfası">
+                <span class="glyphicon glyphicon-arrow-left">
+                    Geri Dön
+                </span>
+            </a>
+        </div>
+        }
+    </div>
+</div>

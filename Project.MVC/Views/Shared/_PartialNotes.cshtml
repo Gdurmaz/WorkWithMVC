@@ -1,0 +1,53 @@
+﻿@using Project.Core.Entities
+
+@model List<Note>
+
+@foreach (Note item in Model)
+{
+    <div class="col-sm-4 col-lg-4 col-md-4" data-noteid="@item.Id">
+        <div class="thumbnail">
+            <img src="http://placehold.it/320x150" alt="@item.Title">
+            <div class="caption">
+                <h4>
+                    <a href="#">@item.Title</a>
+                </h4>
+                <h5>
+                    <span class="glyphicon glyphicon-time"> @item.ModifiedOn.ToShortDateString()</span><br />
+                    <span class="glyphicon glyphicon-user"> @item.BlogUser.Username</span>
+                </h5><hr />
+                @if (!string.IsNullOrEmpty(item.Text) && item.Text.Length > 50)
+                {
+                    <p>@(item.Text.Substring(0, 50) + "....")</p>
+                    <p>
+                        <a href="#" data-toggle="modal" data-target="#modal_detail" data-noteid="@item.Id" class="btn btn-default btn-sm pull-right">
+                            <span class="glyphicon glyphicon-ok"> devamı</span>
+                        </a>
+                    </p>
+                }
+                else
+                {
+                    @item.Text
+                }
+            </div><hr />
+            <div class="ratings">
+                <p class="pull-right">
+                    <button class="btn btn-default btn-sm" data-toggle="modal" data-target="#modal_comment" data-noteid="@item.Id">
+                        <span class="glyphicon glyphicon-comment"> Yorumlar-@item.Comments.Count</span>
+                    </button>
+                <p />
+                <p>
+                    <button class="btn btn-default btn-sm" data-liked="false" data-noteid="@item.Id">
+                        <span class="glyphicon glyphicon-star-empty like-star"></span>
+                        <span class="like-count">@item.LikeCount</span>
+                    </button>
+                </p>
+            </div>
+        </div>
+    </div>
+}
+@Modal.ModalPopup(id: "modal_comment", title: "Yorumlar")
+@Modal.ModalPopup(id: "modal_detail", title: "Not Detayı")
+
+<script src="~/Scripts/comments-note.js"></script>
+<script src="~/Scripts/like-count.js"></script>
+<script src="~/Scripts/note-detail.js"></script>

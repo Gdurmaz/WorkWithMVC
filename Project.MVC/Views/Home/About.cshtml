@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewBag.Title = "About";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <!--Categories||Kategoriler-->
+            <p class="lead">Kategoriler</p>
+            @Html.Partial("_PartialCatagories")
+        </div>
+        <div class="col-md-9">
+            <div class="row">
+                <!--Hakkında-->
+                <h3 class="text-center">Abcdef</h3>
+                <img src="http://placehold.it/400x200" class="center-block img-responsive img-rounded img-thumbnail" alt="Alternate Text" />
+                <p>
+                    hashdshad hashdh saasdsa
+                </p>
+                <p>
+                    hashdshad hashdh sassssssssssssssssssssssssssssss
+                </p>
+                <p>
+                    hashdshad hashdh saasdsadsassssssssasd
+                </p>
+                <p>
+                    hashdshad hashdh saasdsadsadasdsad
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+@section footer{
+    @Html.Partial("_Footer")
+}
+

@@ -1,0 +1,93 @@
+﻿@model Project.Core.Entities.BlogUser
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="text-center col-md-12">
+        <h4><i class="glyphicon glyphicon-list" aria-hidden="true"></i> Kullanıcı Listele </h4>
+        <br />
+        <hr />
+        <br />
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-8 col-md-offset-4">
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Surname)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Surname)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Username)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Username)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Email)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Email)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Password)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Password)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.BirthOfDay)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.BirthOfDay)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.IsActive)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.IsActive)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.IsAdmin)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.IsAdmin)
+            </dd>
+
+        </dl>
+    </div>
+    <div class="col-md-8 text-right">
+        <p>
+            <a href="/BlogUsers/Edit/@Model.Id" class="btn btn-warning"><span class="glyphicon glyphicon-edit"> Düzenle</span></a>
+            <a href="/BlogUsers/Index" class="btn btn-default"><span class="glyphicon glyphicon-arrow-left"> Geri Dön</span></a>
+        </p>
+    </div>
+</div>
+
+

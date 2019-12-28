@@ -1,0 +1,41 @@
+﻿@using Project.MVC.Models;
+@model WarningViewModel
+@{
+    ViewBag.Title = Model.Title;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="~/Content/Login.css" rel="stylesheet" />
+
+<div class="login-popup-wrap new_login_popup">
+    <div class="login-popup-heading text-center">
+        <div class="success-message">
+            <p>
+                @Model.Header
+            </p>
+        </div>
+        <h4><i class="glyphicon glyphicon-warning-sign"> @Model.Title </i></h4>
+        <div class="warning-message">
+            <p>
+                @foreach (var item in Model.Items)
+                {
+                    @item <br />
+                }
+            </p>
+        </div>
+    </div>
+</div>
+<!--Footer is hide-->
+@{
+    var v = string.Empty;
+    if (Model.IsRedirectTo)
+    {
+        v = "setTimeout(function() { window.location = '" + Model.RedirectingUrl + "'; },'" + Model.RedirectingTimeOut + "')";
+    }
+}
+<script type="text/javascript">
+    $(function () {
+            @Html.Raw(v);
+    });
+</script>
+

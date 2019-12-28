@@ -1,0 +1,18 @@
+﻿
+.validation-summary-errors {
+    border: 3px dotted forestgreen;
+    background-color: white;
+    border-radius: 6px;
+    border-top-width: 5px;
+    margin-bottom: 15px;
+    border-right-width: 5px;
+    margin-left: 25px;
+}
+
+    .validation-summary-errors ul {
+        list-style-type: none;
+        font-family: Calibri;
+        padding: 10px;
+        color: forestgreen;
+        padding-right: 15px;
+    }

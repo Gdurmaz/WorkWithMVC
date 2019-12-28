@@ -1,0 +1,45 @@
+﻿@using Project.Core.Entities
+@model BlogUser
+@{
+    ViewBag.Title = "ShowProfile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <img src="~/Content/Image/@Model.ProfileImageFilename" class="img-circle" width="128" height="128" />
+        </div>
+        <div class="col-md-9">
+            <h5>@(Model.Name + " " + Model.Surname)</h5>
+            <br />
+            <h5><b>@Html.DisplayNameFor(model => model.Username) : @Model.Username</b></h5>
+            <br />
+            <h5><b>@Html.DisplayNameFor(model => model.Email):@Model.Email</b></h5>
+            <br />
+            <h5>more...</h5>
+        </div>
+        <div class=" col-md-2 text-right">
+            <div class="btn-group">
+                <a class="btn dropdown-toggle btn-info text-right" data-toggle="dropdown" href="#">
+                    <span class="glyphicon glyphicon-cog"> Ayarlar</span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="@Url.Action("EditProfile")"><span class="glyphicon glyphicon-edit"> Düzenle</span></a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("DeleteProfile")" onclick="return confirm('Hesabı silmek istediğinize emin misiniz')">
+                            <span class="glyphicon glyphicon-trash"> Sil</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+@section footer{
+    @Html.Partial("_Footer")
+}
+
+

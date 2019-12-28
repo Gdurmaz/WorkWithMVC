@@ -1,0 +1,15 @@
+﻿@using Project.Core.BusinessService
+@{
+    CategoryServices categoryServices = new CategoryServices();
+    var cat = categoryServices.SelectWithDate();
+}
+<div class="list-group">
+    <a href="~/Home/Index" class="list-group-item"><span class="glyphicon glyphicon-arrow-right"></span>Tümü</a>
+    @foreach (var item in cat)
+    {
+        <a href="~/Home/GetCategory/@item.Id" title="@item.Description" class="list-group-item">
+        @*<a href="~/Category/GetCategoryID/@item.Id" title="@item.Description" class="list-group-item">*@
+            <span class="glyphicon glyphicon-arrow-right"></span>@item.Title
+        </a>
+    }
+</div>
